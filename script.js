@@ -9,6 +9,9 @@ document.addEventListener('DOMContentLoaded', function() {
     hamburger.addEventListener('click', function() {
         this.classList.toggle('active');
         navLinks.classList.toggle('active');
+
+        //prevent body scrolling when menu is open
+        document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden': '';
     });
     
     // Close mobile menu when clicking a link
@@ -16,6 +19,7 @@ document.addEventListener('DOMContentLoaded', function() {
         link.addEventListener('click', () => {
             hamburger.classList.remove('active');
             navLinks.classList.remove('active');
+            document.body.style.overflow='';
         });
     });
     
@@ -68,7 +72,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Form submission
+    /*// Form submission
     const contactForm = document.getElementById('contactForm');
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
@@ -89,7 +93,7 @@ document.addEventListener('DOMContentLoaded', function() {
             this.reset();
         });
     }
-    
+    */
     // Floating bitmoji animation
     const floatingElements = document.querySelectorAll('.floating');
     floatingElements.forEach(el => {

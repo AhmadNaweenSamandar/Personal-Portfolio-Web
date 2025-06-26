@@ -13,6 +13,11 @@
     <nav id="navbar">
         <div class="container">
             <a href="#" class="logo">ANS</a>
+            <div class="hamburger">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
             <ul class="nav-links">
                 <li><a href="#home" class="active">Home</a></li>
                 <li><a href="#about">About</a></li>
@@ -21,11 +26,7 @@
                 <li><a href="#portfolio">Portfolio</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
-            <div class="hamburger">
-                <div class="line"></div>
-                <div class="line"></div>
-                <div class="line"></div>
-            </div>
+            
         </div>
     </nav>
 
@@ -313,7 +314,14 @@
                     </div>
                 </div>
                 <div class="contact-form">
-                    <form id="contactForm">
+                    <form 
+                    name ="contact"
+                    method="POST"
+                    netlify
+                    class="contact-form"
+                    id="contactForm">
+                    <input type="hidden" name="form-name" value="contact">
+
                         <div class="form-group">
                             <input type="text" id="name" name="name" placeholder="Your Full Name" required>
                         </div>
