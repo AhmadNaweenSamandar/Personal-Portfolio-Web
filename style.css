@@ -866,6 +866,14 @@ footer h2 {
         transform: rotate(45deg) translate(-5px, -6px);
     }
 }
+/* reCAPTCHA styling */
+.recaptcha-container {
+    margin: 25px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 
 @media (max-width: 768px) {
     .section {
@@ -886,5 +894,12 @@ footer h2 {
     
     .portfolio-grid {
         grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .recaptcha-container {
+        justify-content: center;
+        padding: 0 10px;
     }
 }

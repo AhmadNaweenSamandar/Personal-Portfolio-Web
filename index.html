@@ -262,8 +262,8 @@
                     </div>
                     <h4>Pingly</h4>
                     <div class="project-links">
-                        <a href="https://github.com/yourusername/project2" class="btn btn-git"><i class="fab fa-github"></i> Git</a>
-                        <a href="https://project2-live.com" class="btn btn-demo">Live Demo</a>
+                        <a href="https://github.com/AhmadNaweenSamandar/Pingly" class="btn btn-git"><i class="fab fa-github"></i> Git</a>
+                        <a href="https://pinglly.netlify.app/" class="btn btn-demo">Live Demo</a>
                     </div>
                 </div>
                 <div class="project">
@@ -314,8 +314,8 @@
                     </div>
                 </div>
                 <div class="contact-form">
-                    <form name ="contact" method="POST" data-netlify="true" class="contact-form" id="contactForm">
-                    <input type="hidden" name="form-name" value="contact">
+                    <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="contact-form" id="contactForm">
+                        <input type="hidden" name="form-name" value="contact" />
 
                         <div class="form-group">
                             <input type="text" id="name" name="name" placeholder="Your Full Name" required>
@@ -327,6 +327,13 @@
                             <textarea id="message" name="message" placeholder="Your Message" required></textarea>
                         </div>
                         <button type="submit" class="btn">Send Message</button>
+
+                        <!-- Netlify reCAPTCHA placeholder -->
+                         <div data-netlify-recaptcha="true" class="recaptcha-container"></div>
+
+                         
+                         <button type="submit" class="btn">Send Message</button>
+
                     </form>
                 </div>
             </div>
