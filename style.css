@@ -874,6 +874,21 @@ footer h2 {
     align-items: center;
 }
 
+/* Hide the reCAPTCHA badge for invisible version if you want a cleaner UI */
+.grecaptcha-badge {
+    visibility: hidden;
+    pointer-events: none;
+}
+
+/* Ensure the invisible reCAPTCHA div does not take space */
+#reveal-recaptcha {
+    height: 0 !important;
+    width: 0 !important;
+    overflow: hidden;
+    position: absolute;
+}
+
+
 
 @media (max-width: 768px) {
     .section {
