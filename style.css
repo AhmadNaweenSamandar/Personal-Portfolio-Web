@@ -12,6 +12,8 @@
     src: url(Alegreya/Raleway-Thin.ttf);
 }
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');
+
+
 /* Global Styles */
 :root {
     --yellow: #FFCE32;
@@ -601,6 +603,50 @@ body {
     font-family: 'Alegreya', sans-serif;
 }
 
+/* Events Section */
+#events {
+    background-color: var(--yellow);
+}
+
+.events-container {
+    display: flex;
+    justify-content: center;
+    gap: 5%;
+    margin-top: 50px;
+}
+
+.event-poster {
+    flex: 1;
+    max-width: 47.5%; /* 50% minus half of the 5% gap */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.event-poster:hover {
+    transform: translateY(-5px);
+}
+
+.event-poster img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 10px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .events-container {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .event-poster {
+        max-width: 100%;
+    }
+}
+
 /* Contact Section */
 #contact {
     background-color: var(--white-lilac);
@@ -692,6 +738,39 @@ body {
 .form-group textarea {
     min-height: 150px;
     resize: vertical;
+}
+
+/* Reveal Button Styles */
+.reveal-btn {
+    background-color: var(--prussian-blue);
+    color: white;
+    border: none;
+    padding: 6px 10px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Alegreya', sans-serif;
+}
+
+.reveal-btn:hover {
+    background-color: var(--yellow);
+    color: var(--dark);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.reveal-btn:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.protected {
+    min-height: 24px; /* Maintain consistent spacing */
 }
 
 /* Footer */

@@ -77,34 +77,63 @@ document.addEventListener('DOMContentLoaded', function() {
     floatingElements.forEach(el => {
         el.style.animation = `floating ${3 + Math.random() * 3}s ease-in-out infinite`;
     });
+
+    // Initialize recaptcha
+    if (typeof grecaptcha !== 'undefined') {
+        recaptchaLoaded = true;
+    }
 });
 
-// --- Below your existing code ---
+
 // For Google invisible reCAPTCHA integration on email/phone reveal:
 
 let infoToReveal = null;
+let recaptchaLoaded = false;
+
+// Initialize reCAPTCHA
+function onRecaptchaLoad() {
+    recaptchaLoaded = true;
+}
 
 function revealInfo(type) {
     infoToReveal = type;
-    if (typeof grecaptcha !== 'undefined') {
+    
+    if (recaptchaLoaded) {
         grecaptcha.execute();
     } else {
-        alert('reCAPTCHA not loaded. Please try again later.');
+        // Fallback if reCAPTCHA fails to load
+        setTimeout(() => {
+            if (!recaptchaLoaded) {
+                directRevealInfo(type);
+            }
+        }, 1000);
+        alert('Verifying... Please wait a moment.');
     }
 }
 
 function recaptchaSolved() {
-    if (!infoToReveal) return;
-
-    if (infoToReveal === "email") {
-        document.getElementById("email-protected").textContent = "asama017@email.com"; // <-- real email
-    } else if (infoToReveal === "phone") {
-        document.getElementById("phone-protected").textContent = "+1-613-462-2107"; // <--  real phone number
+    if (infoToReveal) {
+        directRevealInfo(infoToReveal);
+        infoToReveal = null;
     }
+}
 
-    // Disable the button after reveal
-    const btn = document.querySelector(`button[onclick="revealInfo('${infoToReveal}')"]`);
-    if (btn) btn.disabled = true;
-
-    infoToReveal = null;
+function directRevealInfo(type) {
+    const email = "asama017@email.com"; // Replace with your real email
+    const phone = "+1-613-462-2107"; // Replace with your real phone
+    
+    if (type === "email") {
+        document.getElementById("email-protected").textContent = email;
+        document.querySelector('button[onclick="revealInfo(\'email\')"]').disabled = true;
+    } else if (type === "phone") {
+        document.getElementById("phone-protected").textContent = phone;
+        document.querySelector('button[onclick="revealInfo(\'phone\')"]').disabled = true;
+    }
+    
+    // Change button text and style after reveal
+    const buttons = document.querySelectorAll(`button[onclick="revealInfo('${type}')"]`);
+    buttons.forEach(btn => {
+        btn.innerHTML = `<i class="fas fa-check"></i> Revealed`;
+        btn.style.backgroundColor = '#4CAF50'; // Green color
+    });
 }
