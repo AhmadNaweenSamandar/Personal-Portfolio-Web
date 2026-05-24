@@ -775,8 +775,8 @@ body {
 
 /* Footer */
 footer {
-    background-color: var(--prussian-blue);
-    color: white;
+    background-color: var(--white-lilac);
+    color: var(--prussian-blue);
     padding: 50px 0 20px;
     text-align: center;
 }
@@ -802,7 +802,7 @@ footer h2 {
 }
 
 .footer-links a {
-    color: white;
+    color: var(--prussian-blue);
     text-decoration: none;
     font-weight: 500;
     transition: all 0.3s ease;
