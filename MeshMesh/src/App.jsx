@@ -11,9 +11,11 @@ import ConfirmationPage from "./pages/ConfirmationPage";
 import SurveyPage from "./pages/SurveyPage";
 import ScrollToTop from "./components/ui/ScrollToTop";
 
+const basename = import.meta.env.PROD ? "/meshmesh-site" : "/";
+
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={basename}>
       <CartProvider>
         <ScrollToTop />
         <div className="app">
